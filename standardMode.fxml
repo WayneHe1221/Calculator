@@ -9,26 +9,26 @@
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.modeController">
    <children>
       <TextArea fx:id="ta1" editable="false" layoutY="28.0" prefHeight="60.0" prefWidth="300.0" />
-      <Button fx:id="mark1" contentDisplay="CENTER" layoutY="89.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
-      <Button fx:id="mark2" contentDisplay="CENTER" layoutX="75.0" layoutY="89.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+/-" textAlignment="CENTER" />
-      <Button fx:id="mark3" contentDisplay="CENTER" layoutX="150.0" layoutY="89.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="\%" textAlignment="CENTER" />
-      <Button fx:id="mark4" contentDisplay="CENTER" layoutX="225.0" layoutY="89.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="DEL" textAlignment="CENTER" />
-      <Button fx:id="mark5" contentDisplay="CENTER" layoutX="225.0" layoutY="149.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER" />
-      <Button fx:id="num9" contentDisplay="CENTER" layoutX="150.0" layoutY="149.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="9" textAlignment="CENTER" />
-      <Button fx:id="num8" contentDisplay="CENTER" layoutX="75.0" layoutY="149.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="8" textAlignment="CENTER" />
-      <Button fx:id="num7" contentDisplay="CENTER" layoutY="149.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="7" textAlignment="CENTER" />
-      <Button fx:id="mark6" contentDisplay="CENTER" layoutX="225.0" layoutY="209.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER" />
-      <Button fx:id="num6" contentDisplay="CENTER" layoutX="150.0" layoutY="209.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="6" textAlignment="CENTER" />
-      <Button fx:id="num5" contentDisplay="CENTER" layoutX="75.0" layoutY="209.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="5" textAlignment="CENTER" />
-      <Button fx:id="num4" contentDisplay="CENTER" layoutY="209.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="4" textAlignment="CENTER" />
-      <Button fx:id="mark7" contentDisplay="CENTER" layoutX="225.0" layoutY="269.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER" />
-      <Button fx:id="num3" contentDisplay="CENTER" layoutX="150.0" layoutY="269.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER" />
-      <Button fx:id="num2" contentDisplay="CENTER" layoutX="75.0" layoutY="269.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER" />
-      <Button fx:id="num1" contentDisplay="CENTER" layoutY="269.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
-      <Button fx:id="mark8" contentDisplay="CENTER" layoutX="225.0" layoutY="329.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER" />
-      <Button fx:id="mark9" contentDisplay="CENTER" layoutX="150.0" layoutY="329.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="=" textAlignment="CENTER" />
-      <Button fx:id="num0" contentDisplay="CENTER" layoutX="75.0" layoutY="329.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER" />
-      <Button fx:id="mark10" contentDisplay="CENTER" layoutY="329.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="." textAlignment="CENTER" />
+      <Button fx:id="mark1" contentDisplay="CENTER" layoutY="89.0" mnemonicParsing="false" onAction="#markEvent1" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
+      <Button fx:id="mark2" contentDisplay="CENTER" layoutX="75.0" layoutY="89.0" mnemonicParsing="false" onAction="#markEvent2" prefHeight="60.0" prefWidth="75.0" text="+/-" textAlignment="CENTER" />
+      <Button fx:id="mark3" contentDisplay="CENTER" layoutX="150.0" layoutY="89.0" mnemonicParsing="false" onAction="#markEvent3" prefHeight="60.0" prefWidth="75.0" text="\%" textAlignment="CENTER" />
+      <Button fx:id="mark4" contentDisplay="CENTER" layoutX="225.0" layoutY="89.0" mnemonicParsing="false" onAction="#markEvent4" prefHeight="60.0" prefWidth="75.0" text="DEL" textAlignment="CENTER" />
+      <Button fx:id="mark5" contentDisplay="CENTER" layoutX="225.0" layoutY="149.0" mnemonicParsing="false" onAction="#markEvent5" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER" />
+      <Button fx:id="num9" contentDisplay="CENTER" layoutX="150.0" layoutY="149.0" mnemonicParsing="false" onAction="#textEvent9" prefHeight="60.0" prefWidth="75.0" text="9" textAlignment="CENTER" />
+      <Button fx:id="num8" contentDisplay="CENTER" layoutX="75.0" layoutY="149.0" mnemonicParsing="false" onAction="#textEvent8" prefHeight="60.0" prefWidth="75.0" text="8" textAlignment="CENTER" />
+      <Button fx:id="num7" contentDisplay="CENTER" layoutY="149.0" mnemonicParsing="false" onAction="#textEvent7" prefHeight="60.0" prefWidth="75.0" text="7" textAlignment="CENTER" />
+      <Button fx:id="mark6" contentDisplay="CENTER" layoutX="225.0" layoutY="209.0" mnemonicParsing="false" onAction="#markEvent6" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER" />
+      <Button fx:id="num6" contentDisplay="CENTER" layoutX="150.0" layoutY="209.0" mnemonicParsing="false" onAction="#textEvent6" prefHeight="60.0" prefWidth="75.0" text="6" textAlignment="CENTER" />
+      <Button fx:id="num5" contentDisplay="CENTER" layoutX="75.0" layoutY="209.0" mnemonicParsing="false" onAction="#textEvent5" prefHeight="60.0" prefWidth="75.0" text="5" textAlignment="CENTER" />
+      <Button fx:id="num4" contentDisplay="CENTER" layoutY="209.0" mnemonicParsing="false" onAction="#textEvent4" prefHeight="60.0" prefWidth="75.0" text="4" textAlignment="CENTER" />
+      <Button fx:id="mark7" contentDisplay="CENTER" layoutX="225.0" layoutY="269.0" mnemonicParsing="false" onAction="#markEvent7" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER" />
+      <Button fx:id="num3" contentDisplay="CENTER" layoutX="150.0" layoutY="269.0" mnemonicParsing="false" onAction="#textEvent3" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER" />
+      <Button fx:id="num2" contentDisplay="CENTER" layoutX="75.0" layoutY="269.0" mnemonicParsing="false" onAction="#textEvent2" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER" />
+      <Button fx:id="num1" contentDisplay="CENTER" layoutY="269.0" mnemonicParsing="false" onAction="#textEvent1" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
+      <Button fx:id="mark8" contentDisplay="CENTER" layoutX="225.0" layoutY="329.0" mnemonicParsing="false" onAction="#markEvent8" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER" />
+      <Button fx:id="mark9" contentDisplay="CENTER" layoutX="150.0" layoutY="329.0" mnemonicParsing="false" onAction="#markEvent9" prefHeight="60.0" prefWidth="75.0" text="=" textAlignment="CENTER" />
+      <Button fx:id="num0" contentDisplay="CENTER" layoutX="75.0" layoutY="329.0" mnemonicParsing="false" onAction="#textEvent0" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER" />
+      <Button fx:id="mark10" contentDisplay="CENTER" layoutY="329.0" mnemonicParsing="false" onAction="#markEvent10" prefHeight="60.0" prefWidth="75.0" text="." textAlignment="CENTER" />
       <Button fx:id="mode3" layoutX="200.0" mnemonicParsing="false" onAction="#switchERMode" prefHeight="28.0" prefWidth="100.0" text="ExchangRate" />
       <Button fx:id="mode2" layoutX="100.0" mnemonicParsing="false" onAction="#switchPDMode" prefHeight="28.0" prefWidth="100.0" text="PDMode" />
       <Button fx:id="mode1" mnemonicParsing="false" onAction="#switchSMode" prefHeight="28.0" prefWidth="100.0" text="Standard" />

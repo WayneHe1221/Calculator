@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.modeController">
    <children>
-      <TextArea layoutY="30.0" prefHeight="80.0" prefWidth="525.0" />
+      <TextArea editable="false" layoutY="29.0" prefHeight="80.0" prefWidth="525.0" />
       <Button contentDisplay="CENTER" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Word Inverse" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="225.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="150.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="FF" textAlignment="CENTER" />
@@ -18,7 +18,7 @@
       <Button contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="151.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="225.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Byte Inverse" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&lt;&lt;Y" textAlignment="CENTER" />
@@ -49,7 +49,7 @@
       <Button contentDisplay="CENTER" layoutX="225.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="E" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutX="75.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="OR" textAlignment="CENTER" />
       <Button contentDisplay="CENTER" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AND" textAlignment="CENTER" />
-      <TextFlow layoutY="110.0" prefHeight="100.0" prefWidth="525.0">
+      <TextFlow layoutY="109.0" prefHeight="100.0" prefWidth="525.0">
          <children>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
          </children>
