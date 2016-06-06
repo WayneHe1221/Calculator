@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.modeController">
+   <children>
+      <Button contentDisplay="CENTER" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Word Inverse" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="FF" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="00" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="=" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Byte Inverse" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&lt;&lt;Y" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&gt;&gt;Y" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="5" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="4" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="6" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&lt;&lt;" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&gt;&gt;" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="8" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="7" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="9" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2's" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1's" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoR" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoL" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="A" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="B" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="XOR" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="NOR" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
+      <Button fx:id="mark11" contentDisplay="CENTER" layoutX="375.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AC" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="F" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="D" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="E" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="OR" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AND" textAlignment="CENTER" />
+      <Button fx:id="mode1" mnemonicParsing="false" onAction="#switchSMode" prefHeight="28.0" prefWidth="175.0" text="StandardMode" />
+      <Button fx:id="mode3" layoutX="350.0" mnemonicParsing="false" onAction="#switchERMode" prefHeight="28.0" prefWidth="175.0" text="ExchangRateMode" />
+      <Button fx:id="mode2" layoutX="175.0" mnemonicParsing="false" onAction="#switchPDMode" prefHeight="28.0" prefWidth="175.0" text="ProgramDesignerMode" />
+      <ToggleButton layoutX="471.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="16" />
+      <ToggleButton layoutX="421.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" selected="true" text="10" />
+      <ToggleButton layoutX="371.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="8" />
+      <TextArea editable="false" layoutY="28.0" prefHeight="70.0" prefWidth="525.0" />
+   </children>
+</Pane>

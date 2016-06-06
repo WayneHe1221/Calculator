@@ -1,3 +1,5 @@
+package calculator;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,6 +8,7 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 import org.json.*;
+
 public class DealJS {
 	DealJS() throws IOException, JSONException ,ArrayIndexOutOfBoundsException{
 	
