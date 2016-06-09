@@ -8,8 +8,8 @@ package calculator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,26 +17,59 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.json.JSONException;
 
 /**
  *
  * @author Wayne
  */
 public class modeController implements Initializable {
-
+    
+    // every mode 
+    @FXML
+    TextArea ta1, ta2, erInput, erOutput;
     @FXML
     Pane pane;
     @FXML
+    Button mode1, mode2, mode3;
+    // StandardMode method
+    @FXML
     Button num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
     @FXML
-    Button mark1, mark2, mark3, mark4, mark5, mark6, mark7, mark8, mark9, mark10, mark11;
+    Button mark1, mark2, mark3, mark4, mark5, mark6, mark7, mark8, mark9, mark10;
+    // ProgramDesignMode 
     @FXML
-    Button mode1, mode2, mode3;
+    ToggleGroup carry;
     @FXML
-    TextArea ta1;
+    ToggleButton oct, dec, hex;
+    @FXML
+    Label lb0, lb1, lb2, lb3, lb4, lb5, lb6, lb7, lb8, lb9, lb10, lb11, lb12, lb13, lb14, lb15, lb16,
+        lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
+        lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
+        lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63;
+    @FXML
+    Button textNum0, textNum00, textNumFF, textNum1, textNum2, textNum3, textNum4, textNum5,
+            textNum6, textNum7, textNum8, textNum9, textNumA, textNumB, textNumC, textNumD,
+            textNumE, textNumF;
+    @FXML
+    Button logic1, logic2, logic3, logic4, logic5, logic6, logic7, logic8, logic9, logic10;
+    @FXML
+    Button cancel, delete, turnLeft, turnRight, comp2, comp1, divide, multiply, munus, plus, equal;
+    // ExchangeRateMode button
+    @FXML
+    Button exchange;
+    @FXML
+    ChoiceBox cbInput, cbOutput;
+    @FXML
+    Label hint;
 
     @FXML
     void textEvent0() {
@@ -87,11 +120,13 @@ public class modeController implements Initializable {
     void textEvent9() {
         ta1.appendText("9");
     }
+
     // action method of cancel
     @FXML
     void markEvent1() {
         ta1.clear();
     }
+
     // action method to inverse mark
     @FXML
     void markEvent2() {
@@ -111,6 +146,7 @@ public class modeController implements Initializable {
             ta1.appendText("");
         }
     }
+
     // action method for percent
     @FXML
     void markEvent3() {
@@ -144,6 +180,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method to delete
     @FXML
     void markEvent4() {
@@ -153,6 +190,7 @@ public class modeController implements Initializable {
         ta1.clear();
         ta1.appendText(store);
     }
+
     // action method of divide
     @FXML
     void markEvent5() {
@@ -196,6 +234,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method of multiply
     @FXML
     void markEvent6() {
@@ -239,6 +278,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method of minus
     @FXML
     void markEvent7() {
@@ -282,6 +322,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method of plus
     @FXML
     void markEvent8() {
@@ -325,6 +366,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method of '='
     @FXML
     void markEvent9() {
@@ -362,6 +404,7 @@ public class modeController implements Initializable {
             }
         }
     }
+
     // action method for text '.'
     @FXML
     void markEvent10() {
@@ -395,10 +438,59 @@ public class modeController implements Initializable {
             }
         }
     }
+    
+    //@FXML
+    
+
+    // choose input currency
+    @FXML
+    void choiceInput() {
+        if (cbInput.isShowing() == false) {
+            cbInput.setItems(FXCollections.observableArrayList("TWD", "USD", "EUR"));
+            cbInput.setTooltip(new Tooltip("Select currency to input"));
+            cbInput.show();
+        } else {
+            cbInput.show();
+        }
+    }
+
+    // choose output currency
+    @FXML
+    void choiceOutput() {
+        if (cbOutput.isShowing() == false) {
+            cbOutput.setItems(FXCollections.observableArrayList("TWD", "USD", "EUR"));
+            cbOutput.setTooltip(new Tooltip("Select currency to input"));
+            cbOutput.show();
+        } else {
+            cbOutput.show();
+        }
+    }
+
+    @FXML
+    void exchangeCurrency() throws JSONException, IOException {
+        DealJS rate = new DealJS();
+        double input;
+        if (erInput.getText() == null || erInput.getText() == "0") {
+            hint.setText("Please input number!!");
+        } else {
+            input = Double.parseDouble(erInput.getText());
+            //if (input == 0) {
+            //hint.setText("Please only input number!!");
+            //} else {
+            String currencyInput = "USD" + (String) cbInput.getValue();
+            String currencyOutput = "USD" + (String) cbOutput.getValue();
+            rate.setCurrency(currencyInput);
+            input = input / Double.parseDouble(rate.getRate());
+            rate.setCurrency(currencyOutput);
+            input = input * Double.parseDouble(rate.getRate());
+            hint.setText("Exchange successful.");
+            erOutput.setText(String.valueOf(input));
+            //}
+        }
+    }
 
     @FXML
     private void switchSMode(ActionEvent event) throws IOException {
-
         //load up OTHER FXML document
         Parent root = FXMLLoader.load(getClass().getResource("standardMode.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -406,30 +498,31 @@ public class modeController implements Initializable {
         Scene scene = new Scene(root);
         stage.hide();
         stage.setScene(scene);
-        stage.show();//load up OTHER FXML document
+        stage.setTitle("StandardMode");
+        stage.show();
     }
 
     @FXML
     private void switchPDMode(ActionEvent event) throws IOException {
-
         //load up OTHER FXML document
         Parent root = FXMLLoader.load(getClass().getResource("pdMode.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //create a new scene with root and set the stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("ProgramDesignMode");
         stage.show();
     }
 
     @FXML
     private void switchERMode(ActionEvent event) throws IOException {
-        
         //load up OTHER FXML document
         Parent root = FXMLLoader.load(getClass().getResource("erMode.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //create a new scene with root and set the stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("ExchangeRateMode");
         stage.show();
     }
 

@@ -29,6 +29,7 @@ public class Calculator extends Application {
         }
         scene = new Scene(parent);
         mystage.setScene(scene);
+        mystage.setTitle("StandardMode");
         mystage.show();
     }
 

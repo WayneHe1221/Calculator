@@ -9,51 +9,262 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.modeController">
    <children>
-      <Button contentDisplay="CENTER" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Word Inverse" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="FF" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="00" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="=" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Byte Inverse" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&lt;&lt;Y" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&gt;&gt;Y" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="5" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="4" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="6" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&lt;&lt;" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&gt;&gt;" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="8" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="7" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="9" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2's" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1's" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoR" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="375.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoL" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="A" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="B" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="XOR" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="NOR" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="450.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER" />
-      <Button fx:id="mark11" contentDisplay="CENTER" layoutX="375.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AC" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="F" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="D" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="E" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutX="75.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="OR" textAlignment="CENTER" />
-      <Button contentDisplay="CENTER" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AND" textAlignment="CENTER" />
+      <Button fx:id="logic10" contentDisplay="CENTER" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Word Inverse" textAlignment="CENTER" />
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="0" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="FF" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="00" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="equal" contentDisplay="CENTER" layoutX="375.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="=" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="plus" contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="multiply" contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="3" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="logic9" contentDisplay="CENTER" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Byte Inverse" textAlignment="CENTER" />
+      <Button fx:id="logic7" contentDisplay="CENTER" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&lt;&lt;Y" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="logic8" contentDisplay="CENTER" layoutX="75.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="X&gt;&gt;Y" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="5" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="4" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="6" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="divide" contentDisplay="CENTER" layoutX="375.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="minus" contentDisplay="CENTER" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="logic5" contentDisplay="CENTER" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&lt;&lt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="logic6" contentDisplay="CENTER" layoutX="75.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="&gt;&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="8" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="7" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="9" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="comp2" contentDisplay="CENTER" layoutX="375.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="2's" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="comp1" contentDisplay="CENTER" layoutX="450.0" layoutY="330.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="1's" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="turnRight" contentDisplay="CENTER" layoutX="450.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoR" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="turnLeft" contentDisplay="CENTER" layoutX="375.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="RoL" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="C" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="A" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="B" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="logic4" contentDisplay="CENTER" layoutX="75.0" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="XOR" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="logic3" contentDisplay="CENTER" layoutY="270.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="NOR" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="delete" contentDisplay="CENTER" layoutX="450.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="DEL" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="cancel" contentDisplay="CENTER" layoutX="375.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AC" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="300.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="F" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="150.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="D" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button contentDisplay="CENTER" layoutX="225.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="E" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="logic2" contentDisplay="CENTER" layoutX="75.0" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="OR" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="logic1" contentDisplay="CENTER" layoutY="210.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="AND" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
       <Button fx:id="mode1" mnemonicParsing="false" onAction="#switchSMode" prefHeight="28.0" prefWidth="175.0" text="StandardMode" />
       <Button fx:id="mode3" layoutX="350.0" mnemonicParsing="false" onAction="#switchERMode" prefHeight="28.0" prefWidth="175.0" text="ExchangRateMode" />
       <Button fx:id="mode2" layoutX="175.0" mnemonicParsing="false" onAction="#switchPDMode" prefHeight="28.0" prefWidth="175.0" text="ProgramDesignerMode" />
-      <ToggleButton layoutX="471.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="16" />
-      <ToggleButton layoutX="421.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" selected="true" text="10" />
-      <ToggleButton layoutX="371.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="8" />
-      <TextArea editable="false" layoutY="28.0" prefHeight="70.0" prefWidth="525.0" />
+      <ToggleButton fx:id="hex" layoutX="471.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="16">
+         <toggleGroup>
+            <ToggleGroup fx:id="carry" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton fx:id="dec" layoutX="421.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" selected="true" text="10" toggleGroup="$carry" />
+      <ToggleButton fx:id="oct" layoutX="371.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="8" toggleGroup="$carry" />
+      <TextArea fx:id="ta2" editable="false" layoutY="29.0" prefHeight="66.0" prefWidth="525.0">
+         <font>
+            <Font size="22.0" />
+         </font></TextArea>
+      <Label fx:id="lb63" layoutX="47.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb62" layoutX="59.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb61" layoutX="71.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb60" layoutX="83.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb59" layoutX="103.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb58" layoutX="115.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb57" layoutX="127.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb56" layoutX="141.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb55" layoutX="161.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb54" layoutX="173.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb53" layoutX="185.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb52" layoutX="197.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb51" layoutX="217.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb50" layoutX="229.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb49" layoutX="241.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb48" layoutX="253.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb47" layoutX="273.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb46" layoutX="285.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb45" layoutX="297.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb44" layoutX="309.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb43" layoutX="329.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb42" layoutX="341.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb41" layoutX="353.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb40" layoutX="367.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb39" layoutX="387.0" layoutY="134.0" text="1" />
+      <Label fx:id="lb38" layoutX="399.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb37" layoutX="411.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb36" layoutX="423.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb35" layoutX="443.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb34" layoutX="455.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb33" layoutX="467.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb32" layoutX="479.0" layoutY="134.0" text="0" />
+      <Label fx:id="lb31" layoutX="47.0" layoutY="170.0" text="1" />
+      <Label fx:id="lb30" layoutX="59.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb29" layoutX="71.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb28" layoutX="83.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb27" layoutX="103.0" layoutY="170.0" text="1" />
+      <Label fx:id="lb26" layoutX="115.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb25" layoutX="127.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb24" layoutX="141.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb23" layoutX="161.0" layoutY="170.0" text="1" />
+      <Label fx:id="lb22" layoutX="173.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb21" layoutX="185.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb20" layoutX="197.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb19" layoutX="217.0" layoutY="170.0" text="1" />
+      <Label fx:id="lb18" layoutX="229.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb17" layoutX="241.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb16" layoutX="253.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb15" layoutX="273.0" layoutY="170.0" text="1" />
+      <Label fx:id="lb14" layoutX="285.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb13" layoutX="297.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb12" layoutX="309.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb11" layoutX="329.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb10" layoutX="341.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb9" layoutX="353.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb8" layoutX="367.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb7" layoutX="387.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb6" layoutX="399.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb5" layoutX="411.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb4" layoutX="423.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb3" layoutX="443.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb2" layoutX="455.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb1" layoutX="467.0" layoutY="170.0" text="0" />
+      <Label fx:id="lb0" layoutX="479.0" layoutY="170.0" text="0" />
+      <Label layoutX="478.0" layoutY="186.0" text="0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="267.0" layoutY="186.0" text="15">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="186.0" text="31">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="472.0" layoutY="149.0" text="32">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="149.0" text="47">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="149.0" text="63">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
