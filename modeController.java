@@ -6,6 +6,7 @@
 package calculator;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -32,7 +33,7 @@ import org.json.JSONException;
  * @author Wayne
  */
 public class modeController implements Initializable {
-    
+
     // every mode 
     @FXML
     TextArea ta1, ta2, erInput, erOutput;
@@ -52,9 +53,9 @@ public class modeController implements Initializable {
     ToggleButton oct, dec, hex;
     @FXML
     Label lb0, lb1, lb2, lb3, lb4, lb5, lb6, lb7, lb8, lb9, lb10, lb11, lb12, lb13, lb14, lb15, lb16,
-        lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
-        lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
-        lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63;
+            lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
+            lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
+            lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63;
     @FXML
     Button textNum0, textNum00, textNumFF, textNum1, textNum2, textNum3, textNum4, textNum5,
             textNum6, textNum7, textNum8, textNum9, textNumA, textNumB, textNumC, textNumD,
@@ -71,6 +72,7 @@ public class modeController implements Initializable {
     @FXML
     Label hint;
 
+    //**********************************for standardMode************************************
     @FXML
     void textEvent0() {
         ta1.appendText("0");
@@ -438,10 +440,414 @@ public class modeController implements Initializable {
             }
         }
     }
-    
-    //@FXML
-    
 
+    //**********************************for programDesignMode************************************
+    @FXML
+    void turnToOct() {
+        Button set[] = {textNum0, textNum00, textNumFF, textNum1, textNum2, textNum3, textNum4, textNum5,
+            textNum6, textNum7, textNum8, textNum9, textNumA, textNumB, textNumC, textNumD, textNumE, textNumF};
+        for (int i = 0; i < 18; i++) {
+            set[i].setDisable(false);
+        }
+        for (int i = 10; i < 18; i++) {
+            set[i].setDisable(true);
+        }
+        textNumFF.setDisable(true);
+        ta2.setText("0");
+        radixChange();
+    }
+
+    @FXML
+    void turnToDec() {
+        Button set[] = {textNum0, textNum00, textNumFF, textNum1, textNum2, textNum3, textNum4, textNum5,
+            textNum6, textNum7, textNum8, textNum9, textNumA, textNumB, textNumC, textNumD, textNumE, textNumF};
+        for (int i = 0; i < 18; i++) {
+            set[i].setDisable(false);
+        }
+        for (int i = 12; i < 18; i++) {
+            set[i].setDisable(true);
+        }
+        textNumFF.setDisable(true);
+        ta2.setText("0");
+        radixChange();
+    }
+
+    @FXML
+    void turnToHex() {
+        Button set[] = {textNum0, textNum00, textNumFF, textNum1, textNum2, textNum3, textNum4, textNum5,
+            textNum6, textNum7, textNum8, textNum9, textNumA, textNumB, textNumC, textNumD, textNumE, textNumF};
+        for (int i = 0; i < 18; i++) {
+            set[i].setDisable(false);
+        }
+        ta2.setText("0x0");
+        radixChange();
+    }
+
+    @FXML
+    void clear(){
+        ta2.clear();
+        if(oct.isSelected() || dec.isSelected()){
+            ta2.appendText("0");
+        }else if(hex.isSelected()){
+            ta2.appendText("0x0");
+        }
+        binaryLabel(ta2.getText());
+    }
+    
+    @FXML
+    void delete(){
+        String store = ta2.getText();
+        String finish = new String();
+        if(oct.isSelected() || dec.isSelected()){
+            finish = store.substring(0, store.length()-1);
+            if(finish.isEmpty()){
+                finish = "0";
+            }
+        }else if(hex.isSelected()){
+            finish = store.substring(0, store.length()-1);
+            if("0x".equals(finish)){
+                finish = "0x0";
+            }
+        }
+        ta2.clear();
+        ta2.appendText(finish);
+        binaryLabel(ta2.getText());
+    }
+    
+    @FXML
+    void textbtnFF() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xFF");
+            } else {
+                ta2.appendText("FF");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn00() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if (ta2.getText().isEmpty()) {
+                ta2.appendText("0");
+            } else if (Integer.parseInt(store) == 0) {
+                ta2.clear();
+                ta2.setText("0");
+            } else {
+                ta2.appendText("00");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x0");
+            } else {
+                ta2.appendText("00");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn0() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if (ta2.getText().isEmpty()) {
+                ta2.appendText("0");
+            } else if (store == "0") {
+                ta2.clear();
+                ta2.appendText("0");
+            } else {
+                ta2.appendText("0");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x0");
+            } else {
+                ta2.appendText("0");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn1() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("1");
+            } else {
+                ta2.appendText("1");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x1");
+            } else {
+                ta2.appendText("1");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn2() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("2");
+            } else {
+                ta2.appendText("2");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x2");
+            } else {
+                ta2.appendText("2");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn3() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("3");
+            } else {
+                ta2.appendText("3");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x3");
+            } else {
+                ta2.appendText("3");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn4() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("4");
+            } else {
+                ta2.appendText("4");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x4");
+            } else {
+                ta2.appendText("4");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn5() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("5");
+            } else {
+                ta2.appendText("5");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x5");
+            } else {
+                ta2.appendText("5");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn6() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("6");
+            } else {
+                ta2.appendText("6");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x6");
+            } else {
+                ta2.appendText("6");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn7() {
+        String store = ta2.getText();
+        if (oct.isSelected() || dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("7");
+            } else {
+                ta2.appendText("7");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x7");
+            } else {
+                ta2.appendText("7");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn8() {
+        String store = ta2.getText();
+        if (dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("8");
+            } else {
+                ta2.appendText("8");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x8");
+            } else {
+                ta2.appendText("8");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtn9() {
+        String store = ta2.getText();
+        if (dec.isSelected()) {
+            if ("0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("9");
+            } else {
+                ta2.appendText("9");
+            }
+        } else if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0x9");
+            } else {
+                ta2.appendText("9");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnA() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xA");
+            } else {
+                ta2.appendText("A");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnB() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xB");
+            } else {
+                ta2.appendText("B");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnC() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xC");
+            } else {
+                ta2.appendText("C");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnD() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xD");
+            } else {
+                ta2.appendText("D");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnE() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xE");
+            } else {
+                ta2.appendText("E");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void textbtnF() {
+        String store = ta2.getText();
+        if (hex.isSelected()) {
+            if ("0x0".equals(store)) {
+                ta2.clear();
+                ta2.appendText("0xF");
+            } else {
+                ta2.appendText("F");
+            }
+        }
+        binaryLabel(ta2.getText());
+    }
+
+    //**********************************for exchangeRateMode************************************
     // choose input currency
     @FXML
     void choiceInput() {
@@ -470,13 +876,12 @@ public class modeController implements Initializable {
     void exchangeCurrency() throws JSONException, IOException {
         DealJS rate = new DealJS();
         double input;
-        if (erInput.getText() == null || erInput.getText() == "0") {
+        if (erInput.getText().isEmpty() || erInput.getText() == "0") {
             hint.setText("Please input number!!");
         } else {
             input = Double.parseDouble(erInput.getText());
-            //if (input == 0) {
+
             //hint.setText("Please only input number!!");
-            //} else {
             String currencyInput = "USD" + (String) cbInput.getValue();
             String currencyOutput = "USD" + (String) cbOutput.getValue();
             rate.setCurrency(currencyInput);
@@ -485,10 +890,11 @@ public class modeController implements Initializable {
             input = input * Double.parseDouble(rate.getRate());
             hint.setText("Exchange successful.");
             erOutput.setText(String.valueOf(input));
-            //}
+
         }
     }
 
+    //**********************************for switchMode************************************
     @FXML
     private void switchSMode(ActionEvent event) throws IOException {
         //load up OTHER FXML document
@@ -496,7 +902,6 @@ public class modeController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //create a new scene with root and set the stage
         Scene scene = new Scene(root);
-        stage.hide();
         stage.setScene(scene);
         stage.setTitle("StandardMode");
         stage.show();
@@ -532,7 +937,8 @@ public class modeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-
+    
+    //**********************************method support all calculator************************************
     // judge the num whether it got a % mark or not
     private boolean checkPercentMark(String num) {
         char[] checkMark = num.toCharArray();
@@ -625,4 +1031,65 @@ public class modeController implements Initializable {
             ta1.appendText(Double.toString(result));
         }
     }
+
+    // turn the binary label into biginteger
+    private BigInteger getBinaryLabel(){
+        BigInteger decimal;
+        String binary;
+        StringBuilder store = new StringBuilder();
+        Label lbArray[] = {lb0, lb1, lb2, lb3, lb4, lb5, lb6, lb7, lb8, lb9, lb10, lb11, lb12, lb13, lb14, lb15, lb16,
+            lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
+            lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
+            lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63};
+        for(int i = 0; i < 64; i++){
+            store.append(lbArray[i].getText());
+        }
+        binary = store.reverse().toString();
+        decimal = new BigInteger(binary.trim(), 2);
+        return decimal; 
+    }
+    
+    // textarea change into binary and set on label
+    private void binaryLabel(String text) {
+        BigInteger decimal = null;
+        String binary = new String();
+        StringBuilder reverse;
+        Label lbArray[] = {lb0, lb1, lb2, lb3, lb4, lb5, lb6, lb7, lb8, lb9, lb10, lb11, lb12, lb13, lb14, lb15, lb16,
+            lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
+            lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
+            lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63};
+        if (oct.isSelected()) {
+            decimal = new BigInteger(text, 8);
+        } else if (dec.isSelected()) {
+            decimal = new BigInteger(text);
+        } else if (hex.isSelected()) {
+            text = text.substring(2);
+            decimal = new BigInteger(text, 16);
+        }
+        binary = decimal.toString(2);
+        reverse = new StringBuilder(binary).reverse();
+        binary = reverse.toString();
+        for (int i = 0; i < 64; i++) {
+            lbArray[i].setText("0");
+        }
+        for (int i = 0; i < binary.length(); i++) {
+            String io = binary.substring(i, i + 1);
+            lbArray[i].setText(io);
+        }
+    }
+    
+    // deal with oct, dec & hex changing 
+    private void radixChange(){
+        if(dec.isSelected()){
+            ta2.setText(getBinaryLabel().toString());
+            binaryLabel(getBinaryLabel().toString());
+        }else if(oct.isSelected()){
+            ta2.setText(getBinaryLabel().toString(8));
+            binaryLabel(getBinaryLabel().toString(8));
+        }else if(hex.isSelected()){
+            ta2.setText("0x" + getBinaryLabel().toString(16));
+            binaryLabel("0x" + getBinaryLabel().toString(16));
+        }
+    }
+    
 }
