@@ -34,6 +34,8 @@ import org.json.JSONException;
  */
 public class modeController implements Initializable {
 
+    BigInteger numberical;
+    String operator = "";
     // every mode 
     @FXML
     TextArea ta1, ta2, erInput, erOutput;
@@ -484,28 +486,28 @@ public class modeController implements Initializable {
     }
 
     @FXML
-    void clear(){
+    void clear() {
         ta2.clear();
-        if(oct.isSelected() || dec.isSelected()){
+        if (oct.isSelected() || dec.isSelected()) {
             ta2.appendText("0");
-        }else if(hex.isSelected()){
+        } else if (hex.isSelected()) {
             ta2.appendText("0x0");
         }
         binaryLabel(ta2.getText());
     }
-    
+
     @FXML
-    void delete(){
+    void delete() {
         String store = ta2.getText();
         String finish = new String();
-        if(oct.isSelected() || dec.isSelected()){
-            finish = store.substring(0, store.length()-1);
-            if(finish.isEmpty()){
+        if (oct.isSelected() || dec.isSelected()) {
+            finish = store.substring(0, store.length() - 1);
+            if (finish.isEmpty()) {
                 finish = "0";
             }
-        }else if(hex.isSelected()){
-            finish = store.substring(0, store.length()-1);
-            if("0x".equals(finish)){
+        } else if (hex.isSelected()) {
+            finish = store.substring(0, store.length() - 1);
+            if ("0x".equals(finish)) {
                 finish = "0x0";
             }
         }
@@ -513,11 +515,24 @@ public class modeController implements Initializable {
         ta2.appendText(finish);
         binaryLabel(ta2.getText());
     }
-    
+
     @FXML
     void textbtnFF() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xFF");
+                } else {
+                    ta2.appendText("FF");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xFF");
@@ -531,7 +546,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn00() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0");
+                } else if (Integer.parseInt(store) == 0) {
+                    ta2.clear();
+                    ta2.setText("0");
+                } else {
+                    ta2.appendText("00");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0");
+                } else if (Integer.parseInt(store) == 0) {
+                    ta2.clear();
+                    ta2.setText("0");
+                } else {
+                    ta2.appendText("00");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x0");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x0");
+                } else {
+                    ta2.appendText("00");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if (ta2.getText().isEmpty()) {
                 ta2.appendText("0");
             } else if (Integer.parseInt(store) == 0) {
@@ -554,10 +607,48 @@ public class modeController implements Initializable {
     @FXML
     void textbtn0() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0");
+                } else {
+                    ta2.appendText("0");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0");
+                } else {
+                    ta2.appendText("0");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x0");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x0");
+                } else {
+                    ta2.appendText("0");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if (ta2.getText().isEmpty()) {
                 ta2.appendText("0");
-            } else if (store == "0") {
+            } else if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0");
             } else {
@@ -577,7 +668,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn1() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("1");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("1");
+                } else {
+                    ta2.appendText("1");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("1");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("1");
+                } else {
+                    ta2.appendText("1");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x1");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x1");
+                } else {
+                    ta2.appendText("1");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("1");
@@ -598,7 +727,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn2() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("2");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("2");
+                } else {
+                    ta2.appendText("2");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("2");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("2");
+                } else {
+                    ta2.appendText("2");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x2");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x2");
+                } else {
+                    ta2.appendText("2");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("2");
@@ -619,7 +786,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn3() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("3");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("3");
+                } else {
+                    ta2.appendText("3");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("3");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("3");
+                } else {
+                    ta2.appendText("3");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x3");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x3");
+                } else {
+                    ta2.appendText("3");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("3");
@@ -640,7 +845,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn4() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("4");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("4");
+                } else {
+                    ta2.appendText("4");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("4");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("4");
+                } else {
+                    ta2.appendText("4");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x4");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x4");
+                } else {
+                    ta2.appendText("4");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("4");
@@ -661,7 +904,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn5() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("5");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("5");
+                } else {
+                    ta2.appendText("5");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("5");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("5");
+                } else {
+                    ta2.appendText("5");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x5");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x5");
+                } else {
+                    ta2.appendText("5");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("5");
@@ -682,7 +963,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn6() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("6");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("6");
+                } else {
+                    ta2.appendText("6");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("6");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("6");
+                } else {
+                    ta2.appendText("6");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x6");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x6");
+                } else {
+                    ta2.appendText("6");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("6");
@@ -703,7 +1022,45 @@ public class modeController implements Initializable {
     @FXML
     void textbtn7() {
         String store = ta2.getText();
-        if (oct.isSelected() || dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (oct.isSelected()) {
+                if (store.equals(numberical.toString(8))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("7");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("7");
+                } else {
+                    ta2.appendText("7");
+                }
+            } else if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("7");
+                } else if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("7");
+                } else {
+                    ta2.appendText("7");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x7");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x7");
+                } else {
+                    ta2.appendText("7");
+                }
+            }
+        } else if (oct.isSelected() || dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("7");
@@ -724,7 +1081,31 @@ public class modeController implements Initializable {
     @FXML
     void textbtn8() {
         String store = ta2.getText();
-        if (dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("8");
+                } else {
+                    ta2.appendText("8");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x8");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x8");
+                } else {
+                    ta2.appendText("8");
+                }
+            }
+        } else if (dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("8");
@@ -745,7 +1126,31 @@ public class modeController implements Initializable {
     @FXML
     void textbtn9() {
         String store = ta2.getText();
-        if (dec.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (dec.isSelected()) {
+                if (store.equals(numberical.toString())) {
+                    ta2.clear();
+                }
+                if ("0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("9");
+                } else {
+                    ta2.appendText("9");
+                }
+            } else if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0x9");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0x9");
+                } else {
+                    ta2.appendText("9");
+                }
+            }
+        } else if (dec.isSelected()) {
             if ("0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("9");
@@ -766,7 +1171,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnA() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xA");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xA");
+                } else {
+                    ta2.appendText("A");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xA");
@@ -780,7 +1199,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnB() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xB");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xB");
+                } else {
+                    ta2.appendText("B");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xB");
@@ -794,7 +1227,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnC() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xC");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xC");
+                } else {
+                    ta2.appendText("C");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xC");
@@ -808,7 +1255,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnD() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xD");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xD");
+                } else {
+                    ta2.appendText("D");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xD");
@@ -822,7 +1283,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnE() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xE");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xE");
+                } else {
+                    ta2.appendText("E");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xE");
@@ -836,7 +1311,21 @@ public class modeController implements Initializable {
     @FXML
     void textbtnF() {
         String store = ta2.getText();
-        if (hex.isSelected()) {
+        if (operator.isEmpty() == false) {
+            if (hex.isSelected()) {
+                if (store.equals("0x" + numberical.toString(16))) {
+                    ta2.clear();
+                }
+                if (ta2.getText().isEmpty()) {
+                    ta2.appendText("0xF");
+                } else if ("0x0".equals(store)) {
+                    ta2.clear();
+                    ta2.appendText("0xF");
+                } else {
+                    ta2.appendText("F");
+                }
+            }
+        } else if (hex.isSelected()) {
             if ("0x0".equals(store)) {
                 ta2.clear();
                 ta2.appendText("0xF");
@@ -845,6 +1334,96 @@ public class modeController implements Initializable {
             }
         }
         binaryLabel(ta2.getText());
+    }
+
+    @FXML
+    void divide() {
+        operator = "÷";
+        numberical = getBinaryLabel();
+    }
+
+    @FXML
+    void multiply() {
+        operator = "×";
+        numberical = getBinaryLabel();
+    }
+
+    @FXML
+    void plus() {
+        operator = "+";
+        numberical = getBinaryLabel();
+    }
+
+    @FXML
+    void minus() {
+        operator = "-";
+        numberical = getBinaryLabel();
+    }
+
+    @FXML
+    void equal() {
+        BigInteger store, result;
+        if (operator == "÷") {
+            if (oct.isSelected()) {
+                store = new BigInteger(ta2.getText(), 8);
+                result = numberical.divide(store);
+                ta2.setText(result.toString(8));
+            } else if (hex.isSelected()) {
+                store = new BigInteger(ta2.getText().substring(2), 16);
+                result = numberical.divide(store);
+                ta2.setText("0x" + result.toString(16));
+            } else {
+                store = new BigInteger(ta2.getText());
+                result = numberical.divide(store);
+                ta2.setText(result.toString());
+            }
+        } else if (operator == "×") {
+            if (oct.isSelected()) {
+                store = new BigInteger(ta2.getText(), 8);
+                result = numberical.multiply(store);
+                ta2.setText(result.toString(8));
+            } else if (hex.isSelected()) {
+                store = new BigInteger(ta2.getText().substring(2), 16);
+                result = numberical.multiply(store);
+                ta2.setText("0x" + result.toString(16));
+            } else {
+                store = new BigInteger(ta2.getText());
+                result = numberical.multiply(store);
+                ta2.setText(result.toString());
+            }
+        } else if (operator == "+") {
+            if (oct.isSelected()) {
+                store = new BigInteger(ta2.getText(), 8);
+                result = numberical.add(store);
+                ta2.setText(result.toString(8));
+            } else if (hex.isSelected()) {
+                store = new BigInteger(ta2.getText().substring(2), 16);
+                result = numberical.add(store);
+                ta2.setText("0x" + result.toString(16));
+            } else {
+                store = new BigInteger(ta2.getText());
+                result = numberical.add(store);
+                ta2.setText(result.toString());
+            }
+        } else if (operator == "-") {
+            if (oct.isSelected()) {
+                store = new BigInteger(ta2.getText(), 8);
+                result = numberical.subtract(store);
+                ta2.setText(result.toString(8));
+            } else if (hex.isSelected()) {
+                store = new BigInteger(ta2.getText().substring(2), 16);
+                result = numberical.subtract(store);
+                ta2.setText("0x" + result.toString(16));
+            } else {
+                store = new BigInteger(ta2.getText());
+                result = numberical.subtract(store);
+                ta2.setText(result.toString());
+            }
+        } else {
+            ta2.appendText("");
+        }
+        binaryLabel(ta2.getText());
+        operator = "";
     }
 
     //**********************************for exchangeRateMode************************************
@@ -880,7 +1459,6 @@ public class modeController implements Initializable {
             hint.setText("Please input number!!");
         } else {
             input = Double.parseDouble(erInput.getText());
-
             //hint.setText("Please only input number!!");
             String currencyInput = "USD" + (String) cbInput.getValue();
             String currencyOutput = "USD" + (String) cbOutput.getValue();
@@ -937,7 +1515,7 @@ public class modeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-    
+
     //**********************************method support all calculator************************************
     // judge the num whether it got a % mark or not
     private boolean checkPercentMark(String num) {
@@ -1033,7 +1611,7 @@ public class modeController implements Initializable {
     }
 
     // turn the binary label into biginteger
-    private BigInteger getBinaryLabel(){
+    private BigInteger getBinaryLabel() {
         BigInteger decimal;
         String binary;
         StringBuilder store = new StringBuilder();
@@ -1041,14 +1619,14 @@ public class modeController implements Initializable {
             lb17, lb18, lb19, lb20, lb21, lb22, lb23, lb24, lb25, lb26, lb27, lb28, lb29, lb30, lb31, lb32,
             lb33, lb34, lb35, lb36, lb37, lb38, lb39, lb40, lb41, lb42, lb43, lb44, lb45, lb46, lb47, lb48,
             lb49, lb50, lb51, lb52, lb53, lb54, lb55, lb56, lb57, lb58, lb59, lb60, lb61, lb62, lb63};
-        for(int i = 0; i < 64; i++){
+        for (int i = 0; i < 64; i++) {
             store.append(lbArray[i].getText());
         }
         binary = store.reverse().toString();
         decimal = new BigInteger(binary.trim(), 2);
-        return decimal; 
+        return decimal;
     }
-    
+
     // textarea change into binary and set on label
     private void binaryLabel(String text) {
         BigInteger decimal = null;
@@ -1077,19 +1655,19 @@ public class modeController implements Initializable {
             lbArray[i].setText(io);
         }
     }
-    
+
     // deal with oct, dec & hex changing 
-    private void radixChange(){
-        if(dec.isSelected()){
+    private void radixChange() {
+        if (dec.isSelected()) {
             ta2.setText(getBinaryLabel().toString());
             binaryLabel(getBinaryLabel().toString());
-        }else if(oct.isSelected()){
+        } else if (oct.isSelected()) {
             ta2.setText(getBinaryLabel().toString(8));
             binaryLabel(getBinaryLabel().toString(8));
-        }else if(hex.isSelected()){
+        } else if (hex.isSelected()) {
             ta2.setText("0x" + getBinaryLabel().toString(16));
             binaryLabel("0x" + getBinaryLabel().toString(16));
         }
     }
-    
+
 }

@@ -22,15 +22,15 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="equal" contentDisplay="CENTER" layoutX="375.0" layoutY="510.0" mnemonicParsing="false" onAction="#radixChange" prefHeight="60.0" prefWidth="150.0" text="=" textAlignment="CENTER">
+      <Button fx:id="equal" contentDisplay="CENTER" layoutX="375.0" layoutY="510.0" mnemonicParsing="false" onAction="#equal" prefHeight="60.0" prefWidth="150.0" text="=" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font></Button>
-      <Button fx:id="plus" contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER">
+      <Button fx:id="plus" contentDisplay="CENTER" layoutX="450.0" layoutY="450.0" mnemonicParsing="false" onAction="#plus" prefHeight="60.0" prefWidth="75.0" text="+" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font></Button>
-      <Button fx:id="multiply" contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER">
+      <Button fx:id="multiply" contentDisplay="CENTER" layoutX="375.0" layoutY="450.0" mnemonicParsing="false" onAction="#multiply" prefHeight="60.0" prefWidth="75.0" text="×" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font></Button>
@@ -67,11 +67,11 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="divide" contentDisplay="CENTER" layoutX="375.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER">
+      <Button fx:id="divide" contentDisplay="CENTER" layoutX="375.0" layoutY="390.0" mnemonicParsing="false" onAction="#divide" prefHeight="60.0" prefWidth="75.0" text="÷" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font></Button>
-      <Button fx:id="minus" contentDisplay="CENTER" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER">
+      <Button fx:id="minus" contentDisplay="CENTER" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" onAction="#minus" prefHeight="60.0" prefWidth="75.0" text="-" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font></Button>
